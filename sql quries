@@ -1,0 +1,3 @@
+SELECT tblstudents.studentid studentname,  tblsubjects.SubjectName FROM tblstudents
+JOIN tblsubjects
+ON tblsubjects.Id =tblstudents.StudentId
