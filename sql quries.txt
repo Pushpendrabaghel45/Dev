@@ -1,0 +1,21 @@
+SELECT tblstudents.studentid studentname,  tblsubjects.SubjectName FROM tblstudents
+JOIN tblsubjects
+ON tblsubjects.Id =tblstudents.StudentId
+
+
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+SQL INNER JOIN SQL LEFT JOIN SQL RIGHT JOIN SQL FULL OUTER JOIN
+
+
+SELECT tblstudents.studentid studentname, studentemail, classname, rollid, subjectname,marks, tblclasses.Section FROM tblstudents
+JOIN tblclasses
+ON tblstudents.StudentId =tblclasses.Id
+join tblsubjects
+ON tblsubjects.id = tblclasses.Id
+join tblresult
+ON tblresult.StudentId = tblsubjects.id
+JOIN tblsubjectcombination
+ON tblsubjectcombination.id = tblresult.StudentId GROUP BY tblstudents.StudentId
