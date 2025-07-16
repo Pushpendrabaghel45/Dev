@@ -19,3 +19,50 @@ join tblresult
 ON tblresult.StudentId = tblsubjects.id
 JOIN tblsubjectcombination
 ON tblsubjectcombination.id = tblresult.StudentId GROUP BY tblstudents.StudentId
+
+
+UPDATE students SET email = 'ram@example.com' WHERE id = 1;
+
+UPDATE authors SET salary = salary + 10000 WHERE author_id = '1';
+
+SELECT * FROM authors WHERE author_id='1';
+
+
+SELECT books.book_id,title, author,name, email, amount, return_date, published_year FROM books
+ JOIN borrowers
+ ON books.book_id = borrowers.borrower_id
+ JOIN loans
+ ON books.book_id = loans.loan_id = 'GROUP BY books';
+
+
+SELECT 
+    genre, 
+    COUNT(*) AS total_books,
+    AVG(price) AS avg_price
+FROM books
+GROUP BY genre;
+
+SELECT author, COUNT(*) 
+FROM books 
+GROUP BY author 
+HAVING COUNT(*) > 1;
+
+SELECT * FROM `books` ORDER BY published_year DESC;
+
+CREATE INDEX idx_author on books(author);
+
+CREATE VIEW available_books AS
+SELECT title, author FROM books 
+WHERE stock_quantity > 0;
+
+DELETE FROM books WHERE book_id=4;
+
+SELECT price FROM books WHERE genre is null
+
+
+SELECT COUNT(book_id), genre
+FROM books
+GROUP BY genre;
+
+
+SELECT * FROM books WHERE genre LIKE 'a%';
